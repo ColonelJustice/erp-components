@@ -1,0 +1,29 @@
+{
+  "technician": {
+    "vorname_text": "Max",
+    "nachname_text": "Mustermann"
+  },
+  "active_tour": {
+    "_id": "tour_001",
+    "name_text": "Wartungsschleife Nord",
+    "projektid_text": "PRJ-2024-X1",
+    "scheduled_date_date": "2024-03-15T08:00:00Z"
+  },
+  "stops": [
+    {
+      "customer_name_text": "Global Tech GmbH",
+      "address_text": "Industriestraße 12, Berlin",
+      "completed_boolean": true,
+      "sequence_number": 1,
+      "tour_custom_lgs_tour": "tour_001"
+    },
+    {
+      "customer_name_text": "City Logistics Hub",
+      "address_text": "An der Werft 4, Hamburg",
+      "completed_boolean": false,
+      "sequence_number": 2,
+      "tour_custom_lgs_tour": "tour_001"
+    }
+  ],
+  "searchTerm": ""
+}
