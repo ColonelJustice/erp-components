@@ -1,0 +1,16 @@
+{
+  "invoice_data": [
+    {
+      "belegnummer_text": "RE-2024-001",
+      "belegdatum_date": "2024-01-15T10:00:00Z",
+      "betrag_brutto_number": 1250.5,
+      "status": "Offen"
+    },
+    {
+      "belegnummer_text": "RE-2024-002",
+      "belegdatum_date": "2024-01-20T14:30:00Z",
+      "betrag_brutto_number": 450,
+      "status": "In Prüfung"
+    }
+  ]
+}
