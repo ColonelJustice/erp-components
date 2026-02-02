@@ -1,0 +1,162 @@
+<div id="iot_dashboard" class="bg-slate-50 min-h-screen text-slate-800 font-sans" role="main">
+    <header class="p-6">
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900">IOT Asset Management</h1>
+                <p class="text-slate-500">Überwachung von Standorten, Sensoren und Messkanälen</p>
+            </div>
+            <button id="iot_refresh_btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-all flex items-center gap-2 shadow-sm" aria-label="Daten aktualisieren">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Aktualisieren
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <article class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Standorte</p>
+                <p id="iot_stat_locations" class="text-2xl font-bold text-indigo-600">-</p>
+            </article>
+            
+            <!-- Integrierter UI-Baustein: Statistik-Karte -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6" data-block="stat-card" data-editable="true">
+              <p class="text-sm font-medium text-slate-500 uppercase tracking-wide">Sensoren (Assets)</p>
+              <p id="iot_stat_assets" class="text-3xl font-bold text-slate-900 mt-1">-</p>
+              <p class="text-sm text-emerald-600 mt-2 flex items-center gap-1">
+                <span>↑ Aktiv</span>
+                <span class="text-slate-400">System online</span>
+              </p>
+            </div>
+
+            <article class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Aktive Kanäle</p>
+                <p id="iot_stat_channels" class="text-2xl font-bold text-amber-600">-</p>
+            </article>
+            <article class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Alerts (24h)</p>
+                <p class="text-2xl font-bold text-red-600">0</p>
+            </article>
+        </div>
+    </header>
+
+    <nav class="px-6 border-b border-slate-200 bg-white sticky top-0 z-10">
+        <div class="flex gap-8">
+            <button data-tab="locations" class="iot_tab_link py-4 px-1 border-b-2 border-indigo-600 text-indigo-600 font-medium text-sm transition-colors">Standorte</button>
+            <button data-tab="assets" class="iot_tab_link py-4 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 font-medium text-sm transition-colors">Sensoren</button>
+            <button data-tab="channels" class="iot_tab_link py-4 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 font-medium text-sm transition-colors">Kanäle</button>
+            <button data-tab="analytics" class="iot_tab_link py-4 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 font-medium text-sm transition-colors">Analyse</button>
+        </div>
+    </nav>
+
+    <main class="p-6">
+        <!-- LOCATIONS -->
+        <section id="iot_tab_locations" class="iot_tab_content block">
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                    <h3 class="font-bold text-slate-700">Standortübersicht</h3>
+                    <button onclick="iotOpenModal('location')" class="px-3 py-1.5 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 rounded-lg text-sm font-medium transition-colors">+ Standort</button>
+                </div>
+                <table class="w-full text-left border-collapse text-sm" aria-label="Standortübersicht">
+                    <caption class="sr-only">Liste aller IOT-Standorte</caption>
+                    <thead class="bg-slate-50 border-b border-slate-200">
+                        <tr>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Bezeichnung</th>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Unternehmen</th>
+                            <th scope="col" class="p-3 text-right text-slate-400">ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="iot_location_body" class="divide-y divide-slate-100">
+                        <tr><td colspan="3" class="p-8 text-center text-slate-400">Lade Daten...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ASSETS -->
+        <section id="iot_tab_assets" class="iot_tab_content hidden">
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                    <h3 class="font-bold text-slate-700">Sensor Assets</h3>
+                    <button onclick="iotOpenModal('asset')" class="px-3 py-1.5 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 rounded-lg text-sm font-medium">+ Sensor</button>
+                </div>
+                <table class="w-full text-left border-collapse text-sm" aria-label="Sensor Assets">
+                    <caption class="sr-only">Liste aller IOT-Sensoren</caption>
+                    <thead class="bg-slate-50 border-b border-slate-200">
+                        <tr>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Modell / Hersteller</th>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Standort</th>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Status</th>
+                            <th scope="col" class="p-3 text-right">Aktionen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="iot_asset_body" class="divide-y divide-slate-100">
+                        <tr><td colspan="4" class="p-8 text-center text-slate-400">Lade Daten...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CHANNELS -->
+        <section id="iot_tab_channels" class="iot_tab_content hidden">
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                    <h3 class="font-bold text-slate-700">Messkanäle</h3>
+                    <button onclick="iotOpenModal('channel')" class="px-3 py-1.5 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 rounded-lg text-sm font-medium">+ Kanal</button>
+                </div>
+                <table class="w-full text-left border-collapse text-sm" aria-label="Messkanäle">
+                    <caption class="sr-only">Liste aller Sensor-Messkanäle</caption>
+                    <thead class="bg-slate-50 border-b border-slate-200">
+                        <tr>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Asset</th>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Hardware ID</th>
+                            <th scope="col" class="p-3 font-semibold text-slate-600">Parameter</th>
+                            <th scope="col" class="p-3 text-right">Aktionen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="iot_channel_body" class="divide-y divide-slate-100">
+                        <tr><td colspan="4" class="p-8 text-center text-slate-400">Lade Daten...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ANALYTICS -->
+        <section id="iot_tab_analytics" class="iot_tab_content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative">
+                    <div id="iot_chart_overlay" class="hidden absolute inset-0 bg-white/70 z-20 flex items-center justify-center font-medium text-slate-500">Warte auf Daten...</div>
+                    <div class="flex justify-between items-center mb-6">
+                         <div class="flex items-center gap-3">
+                           <h3 class="font-bold text-slate-700">Live Verlauf</h3>
+                           <span id="iot_chart_badge" class="hidden px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase animate-pulse">Live</span>
+                         </div>
+                         <div class="flex gap-2">
+                           <select id="iot_chart_selector" class="text-xs border border-slate-200 rounded-lg p-2 bg-slate-50 outline-none focus:ring-2 focus:ring-indigo-500"></select>
+                           <select id="iot_chart_limit" class="text-xs border border-slate-200 rounded-lg p-2 bg-slate-50 outline-none focus:ring-2 focus:ring-indigo-500">
+                             <option value="20">20 Werte</option>
+                             <option value="50" selected>50 Werte</option>
+                             <option value="100">100 Werte</option>
+                           </select>
+                         </div>
+                    </div>
+                    <div class="relative h-[300px]">
+                        <canvas id="iot_main_chart"></canvas>
+                    </div>
+                    <div id="iot_summary_container" class="grid grid-cols-3 gap-4 mt-6"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold mb-4 text-slate-700">Letzte Messungen</h3>
+                    <table class="w-full text-xs text-left">
+                        <tbody id="iot_recent_list" class="divide-y divide-slate-100">
+                           <tr><td class="text-center text-slate-400 py-10">Bitte Kanal wählen</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="iot_loader" class="fixed bottom-6 right-6 px-4 py-2 bg-indigo-600 text-white rounded-full shadow-lg flex items-center gap-3 transition-opacity duration-300 hidden">
+        <div class="w-2 h-2 bg-white rounded-full animate-ping"></div>
+        Synchronisierung...
+    </div>
+</div>
