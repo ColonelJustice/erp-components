@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "typ_text": {
+            "type": "string"
+          },
+          "hersteller_text": {
+            "type": "string"
+          },
+          "modell_text": {
+            "type": "string"
+          },
+          "seriennummer_text": {
+            "type": "string"
+          },
+          "status_text": {
+            "type": "string"
+          },
+          "standort_custom_gen_standort": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "bezeichnung_text": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
