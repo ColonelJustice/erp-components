@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "technician": {
+      "type": "object",
+      "properties": {
+        "vorname_text": {
+          "type": "string"
+        },
+        "nachname_text": {
+          "type": "string"
+        }
+      }
+    },
+    "active_tour": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name_text": {
+          "type": "string"
+        },
+        "projektid_text": {
+          "type": "string"
+        },
+        "scheduled_date_date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "stops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "customer_name_text": {
+            "type": "string"
+          },
+          "address_text": {
+            "type": "string"
+          },
+          "completed_boolean": {
+            "type": "boolean"
+          },
+          "sequence_number": {
+            "type": "number"
+          },
+          "tour_custom_lgs_tour": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "searchTerm": {
+      "type": "string",
+      "description": "Used to filter the tour list by name or project ID"
+    }
+  }
+}
