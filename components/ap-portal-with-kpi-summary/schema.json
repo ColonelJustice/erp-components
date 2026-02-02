@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "invoice_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "belegnummer_text": {
+            "type": "string"
+          },
+          "belegdatum_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "betrag_brutto_number": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
