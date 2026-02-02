@@ -1,0 +1,90 @@
+{
+  "employees": [
+    {
+      "_id": "emp_1",
+      "vorname_text": "Max",
+      "nachname_text": "Mustermann",
+      "personalnummer_text": "PNR-001",
+      "eintritt_date": "2020-01-01T09:00:00Z",
+      "geburtstag_date": "1985-05-15T00:00:00Z",
+      "unternehmen_mail_text": "max.mustermann@company.de",
+      "kostenstelle_custom_kostenstelle": "KS-100 (Verwaltung)",
+      "dokumente_list_custom_dms_dokumente": [
+        "doc_1",
+        "doc_2"
+      ]
+    },
+    {
+      "_id": "emp_2",
+      "vorname_text": "Erika",
+      "nachname_text": "Musterfrau",
+      "personalnummer_text": "PNR-002",
+      "eintritt_date": "2021-06-15T09:00:00Z",
+      "geburtstag_date": "1992-11-20T00:00:00Z",
+      "unternehmen_mail_text": "erika.musterfrau@company.de",
+      "kostenstelle_custom_kostenstelle": "KS-200 (IT)",
+      "dokumente_list_custom_dms_dokumente": [
+        "doc_3"
+      ]
+    },
+    {
+      "_id": "emp_3",
+      "vorname_text": "Hans",
+      "nachname_text": "Schmidt",
+      "personalnummer_text": "PNR-003",
+      "eintritt_date": "2018-03-01T09:00:00Z",
+      "austritt_date": "2023-12-31T18:00:00Z",
+      "geburtstag_date": "1978-02-10T00:00:00Z",
+      "unternehmen_mail_text": "hans.schmidt@company.de",
+      "kostenstelle_custom_kostenstelle": "KS-300 (Logistik)",
+      "dokumente_list_custom_dms_dokumente": []
+    }
+  ],
+  "documents": [
+    {
+      "_id": "doc_1",
+      "dokumentcaption_text": "Arbeitsvertrag",
+      "dokumentname_text": "Mustermann_AV_2020.pdf",
+      "dokumenttyp_text": "Vertrag",
+      "gueltigvon_date": "2020-01-01T00:00:00Z",
+      "neuesteversion_custom_dms_dokumentversion": "ver_1"
+    },
+    {
+      "_id": "doc_2",
+      "dokumentcaption_text": "Sicherheitsunterweisung",
+      "dokumentname_text": "Mustermann_SI_2023.pdf",
+      "dokumenttyp_text": "Schulung",
+      "gueltigvon_date": "2023-01-01T00:00:00Z",
+      "gueltigbis_date": "2023-12-31T00:00:00Z",
+      "neuesteversion_custom_dms_dokumentversion": "ver_2"
+    },
+    {
+      "_id": "doc_3",
+      "dokumentcaption_text": "Arbeitsvertrag",
+      "dokumentname_text": "Musterfrau_AV_2021.pdf",
+      "dokumenttyp_text": "Vertrag",
+      "gueltigvon_date": "2021-06-15T00:00:00Z",
+      "neuesteversion_custom_dms_dokumentversion": "ver_3"
+    }
+  ],
+  "documentVersions": [
+    {
+      "_id": "ver_1",
+      "dateiname_text": "Mustermann_AV_2020.pdf",
+      "datei_file": "https://example.com/files/av1.pdf",
+      "dokument_custom_dms_dokumente": "doc_1"
+    },
+    {
+      "_id": "ver_2",
+      "dateiname_text": "Mustermann_SI_2023.pdf",
+      "datei_file": "https://example.com/files/si2023.pdf",
+      "dokument_custom_dms_dokumente": "doc_2"
+    },
+    {
+      "_id": "ver_3",
+      "dateiname_text": "Musterfrau_AV_2021.pdf",
+      "datei_file": "https://example.com/files/av2.pdf",
+      "dokument_custom_dms_dokumente": "doc_3"
+    }
+  ]
+}
