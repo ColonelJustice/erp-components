@@ -1,0 +1,34 @@
+{
+  "employees": [
+    {
+      "_id": "test_1",
+      "vorname_text": "Max",
+      "nachname_text": "Mustermann",
+      "personalnummer_text": "M1001",
+      "unternehmen_mail_text": "max@firma.de",
+      "kostenstelle_custom_kostenstelle": "dept_1",
+      "eintritt_date": "2020-01-01T08:00:00Z"
+    },
+    {
+      "_id": "test_2",
+      "vorname_text": "Erika",
+      "nachname_text": "Musterfrau",
+      "personalnummer_text": "M1002",
+      "unternehmen_mail_text": "erika@firma.de",
+      "kostenstelle_custom_kostenstelle": "dept_2",
+      "eintritt_date": "2021-05-15T08:00:00Z"
+    }
+  ],
+  "departments": [
+    {
+      "_id": "dept_1",
+      "code_text": "100",
+      "bezeichnung_text": "Verwaltung"
+    },
+    {
+      "_id": "dept_2",
+      "code_text": "200",
+      "bezeichnung_text": "Produktion"
+    }
+  ]
+}
