@@ -1,0 +1,21 @@
+{
+  "id": "763e73c9-74c3-4bb3-9575-1efea72157e1",
+  "name": "Service Portal with Tour Filtering",
+  "version": "1.0.0",
+  "updatedAt": "2026-01-29T22:21:04.939Z",
+  "createdAt": "2026-01-29T22:21:04.939Z",
+  "bubbleId": "1769768360431x929386912868039800",
+  "useLiveApi": true,
+  "enabledLibraries": [
+    "chartjs",
+    "jspdf",
+    "filesaver",
+    "dayjs"
+  ],
+  "identifiedBubbleObjects": [
+    "tour",
+    "stop",
+    "gen_mitarbeiter",
+    "gen_asset"
+  ]
+}
