@@ -1,0 +1,32 @@
+{
+  "assets": [
+    {
+      "_id": "1768942402718x202141879367715650",
+      "typ_text": "Controller / Wasseraufbereitung",
+      "hersteller_text": "Walchem",
+      "modell_text": "W600 Series",
+      "seriennummer_text": "SN-99821",
+      "status_text": "In Betrieb",
+      "standort_custom_gen_standort": "loc_001"
+    },
+    {
+      "_id": "asset_002",
+      "typ_text": "Vakuumpumpe",
+      "hersteller_text": "Leybold",
+      "modell_text": "Sogevac SV",
+      "seriennummer_text": "LB-4421",
+      "status_text": "In Wartung",
+      "standort_custom_gen_standort": "loc_002"
+    }
+  ],
+  "locations": [
+    {
+      "_id": "loc_001",
+      "bezeichnung_text": "Hauptwerk Halle A"
+    },
+    {
+      "_id": "loc_002",
+      "bezeichnung_text": "Labor Süd"
+    }
+  ]
+}
