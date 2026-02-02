@@ -1,0 +1,22 @@
+{
+  "id": "759fc2ec-59ed-4329-acc9-0ad82fd576ee",
+  "name": "ASDASDASD",
+  "version": "1.0.0",
+  "updatedAt": "2026-02-02T14:35:50.447Z",
+  "createdAt": "2026-02-02T14:35:50.447Z",
+  "useLiveApi": true,
+  "enabledLibraries": [
+    "chartjs",
+    "jspdf",
+    "filesaver",
+    "dayjs"
+  ],
+  "identifiedBubbleObjects": [
+    "gen_standort",
+    "gen_asset",
+    "data_sensorchannel",
+    "data_measurementparameter",
+    "gen_unternehmen",
+    "data_measurementobservation"
+  ]
+}
