@@ -1,0 +1,35 @@
+#emp-tbl-container {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+#emp-tbl-container table th {
+  font-size: 0.65rem;
+}
+
+#emp-tbl-container .row-item:nth-child(even) {
+  background-color: #fafafa;
+}
+
+#emp-tbl-container .row-item:hover {
+  background-color: #f0f7ff !important;
+}
+
+#emp-tbl-container ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+#emp-tbl-container ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#emp-tbl-container ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+#emp-tbl-container select:focus, 
+#emp-tbl-container input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
