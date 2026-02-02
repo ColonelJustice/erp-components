@@ -1,0 +1,114 @@
+<div id="emp-tbl-container" class="p-4 bg-gray-50 min-h-screen text-xs">
+  <div class="max-w-7xl mx-auto bg-white rounded shadow-sm border border-gray-200 overflow-hidden">
+    
+    <!-- Header Section -->
+    <div class="p-4 border-b border-gray-200 bg-white flex justify-between items-center">
+      <div>
+        <h2 class="text-lg font-bold text-gray-800 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          Personalverwaltung (Live)
+        </h2>
+        <p class="text-gray-500">Zentralübersicht aller Mitarbeiter aus gen_mitarbeiter</p>
+      </div>
+      <div class="flex gap-2">
+        <button id="emp-tbl-refresh" class="px-3 py-1.5 border border-gray-300 rounded hover:bg-gray-50 text-gray-600 flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          Aktualisieren
+        </button>
+        <button class="px-3 py-1.5 bg-blue-600 text-white rounded hover:bg-blue-700 transition flex items-center font-medium">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+          Neu anlegen
+        </button>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="p-3 bg-gray-50 border-b border-gray-200 grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="relative">
+        <input type="text" id="emp-tbl-search-all" placeholder="Suchen (Name, Mail...)" class="w-full pl-8 pr-3 py-1.5 border rounded focus:ring-1 focus:ring-blue-500 outline-none">
+        <svg class="w-4 h-4 absolute left-2.5 top-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </div>
+      <select id="emp-tbl-filter-dept" class="py-1.5 border rounded px-2 outline-none">
+        <option value="">Alle Kostenstellen</option>
+        <!-- Departments loaded via JS -->
+      </select>
+      <select id="emp-tbl-filter-status" class="py-1.5 border rounded px-2 outline-none">
+        <option value="active">Aktiv</option>
+        <option value="inactive">Ausgeschieden</option>
+        <option value="all">Alle Status</option>
+      </select>
+      <div class="text-right text-gray-400 self-center">
+        <span id="emp-tbl-count">0</span> Mitarbeiter gefunden
+      </div>
+    </div>
+
+    <!-- Table Area -->
+    <div class="overflow-x-auto min-h-[300px]">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-gray-100 border-b border-gray-200 text-gray-600 font-semibold uppercase tracking-wider">
+            <th class="px-4 py-2 border-r">P-Nr.</th>
+            <th class="px-4 py-2 border-r">Name</th>
+            <th class="px-4 py-2 border-r">Unternehmen Email</th>
+            <th class="px-4 py-2 border-r text-center">Kostenstelle</th>
+            <th class="px-4 py-2 border-r">Eintritt</th>
+            <th class="px-4 py-2 text-center">Aktionen</th>
+          </tr>
+        </thead>
+        <tbody id="emp-tbl-body" class="divide-y divide-gray-100 text-gray-700">
+          <tr><td colspan="6" class="p-10 text-center text-gray-400">Lade Daten...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination Placeholder -->
+    <div class="p-3 bg-white border-t border-gray-200 flex justify-between items-center">
+       <div class="text-gray-400">Zeige Livedaten aus Bubble Cloud</div>
+       <nav class="flex gap-1">
+        <button class="p-1 border rounded hover:bg-gray-50"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/></svg></button>
+        <button class="px-3 py-1 border rounded bg-blue-50 text-blue-600 font-bold border-blue-200">1</button>
+        <button class="p-1 border rounded hover:bg-gray-50"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/></svg></button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script id="emp-tbl-row-template" type="text/x-handlebars-template">
+  {{#each items}}
+  <tr class="hover:bg-blue-50 transition-colors cursor-pointer row-item" data-id="{{this._id}}">
+    <td class="px-4 py-2 font-mono text-blue-700">{{#if this.personalnummer_text}}{{this.personalnummer_text}}{{else}}N/A{{/if}}</td>
+    <td class="px-4 py-2">
+      <div class="flex items-center">
+        <div class="w-6 h-6 rounded-full bg-gray-200 mr-2 flex items-center justify-center text-[10px] font-bold text-gray-500 overflow-hidden">
+          {{#if this.profilbild_file}}
+            <img src="{{this.profilbild_file}}" class="w-full h-full object-cover">
+          {{else}}
+            {{initials this.vorname_text this.nachname_text}}
+          {{/if}}
+        </div>
+        <div>
+          <span class="font-medium">{{this.nachname_text}}, {{this.vorname_text}}</span>
+          <div class="text-[10px] text-gray-400">ID: {{this._id}}</div>
+        </div>
+      </div>
+    </td>
+    <td class="px-4 py-2 text-blue-600 underline">{{this.unternehmen_mail_text}}</td>
+    <td class="px-4 py-2 text-center">
+      <span class="px-2 py-0.5 bg-gray-100 rounded text-gray-600 border border-gray-200">
+        {{this.kostenstelle_label}}
+      </span>
+    </td>
+    <td class="px-4 py-2">{{formatDate this.eintritt_date}}</td>
+    <td class="px-4 py-2 text-center">
+      <div class="flex justify-center gap-2">
+        <button title="Bearbeiten" class="p-1 text-gray-400 hover:text-blue-600">
+           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        </button>
+      </div>
+    </td>
+  </tr>
+  {{/each}}
+  {{#unless items.length}}
+    <tr><td colspan="6" class="p-10 text-center text-gray-400">Keine Mitarbeiter gefunden.</td></tr>
+  {{/unless}}
+</script>
