@@ -1,0 +1,20 @@
+{
+  "id": "fc330bfd-7d70-4595-bc1e-33cb85d7d97b",
+  "name": "Asset Management refined with Location Lookup",
+  "version": "1.0.0",
+  "updatedAt": "2026-01-29T12:44:43.440Z",
+  "createdAt": "2026-01-29T12:44:43.440Z",
+  "useLiveApi": true,
+  "enabledLibraries": [
+    "chartjs",
+    "jspdf",
+    "filesaver",
+    "sweetalert2",
+    "dayjs",
+    "codemirror"
+  ],
+  "identifiedBubbleObjects": [
+    "gen_asset",
+    "gen_standort"
+  ]
+}
