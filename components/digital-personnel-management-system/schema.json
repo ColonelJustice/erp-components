@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "employees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "vorname_text": {
+            "type": "string"
+          },
+          "nachname_text": {
+            "type": "string"
+          },
+          "personalnummer_text": {
+            "type": "string"
+          },
+          "eintritt_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "austritt_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "geburtstag_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "unternehmen_mail_text": {
+            "type": "string"
+          },
+          "kostenstelle_custom_kostenstelle": {
+            "type": "string"
+          },
+          "dokumente_list_custom_dms_dokumente": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "dokumentcaption_text": {
+            "type": "string"
+          },
+          "dokumentname_text": {
+            "type": "string"
+          },
+          "dokumenttyp_text": {
+            "type": "string"
+          },
+          "gueltigvon_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gueltigbis_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "neuesteversion_custom_dms_dokumentversion": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "documentVersions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "dateiname_text": {
+            "type": "string"
+          },
+          "datei_file": {
+            "type": "string"
+          },
+          "dokument_custom_dms_dokumente": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
