@@ -1,0 +1,12 @@
+{
+  "id": "74254c24-7ca2-4423-9140-fe083616c4c6",
+  "name": "Digital Personnel Management System",
+  "version": "1.0.0",
+  "updatedAt": "2026-02-02T15:34:22.347Z",
+  "createdAt": "2026-02-02T15:34:22.347Z",
+  "useLiveApi": true,
+  "identifiedBubbleObjects": [
+    "gen_mitarbeiter",
+    "dms_dokument"
+  ]
+}
