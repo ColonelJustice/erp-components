@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "channels": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "companies": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}
