@@ -1,0 +1,40 @@
+/* Scoped Styles for Asset Manager */
+#ast01_main_container {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+}
+
+#ast01_sidebar.open {
+    transform: translateX(0);
+}
+
+.ast01-badge-success {
+    background-color: #ecfdf5;
+    color: #065f46;
+}
+
+.ast01-badge-warning {
+    background-color: #fffbeb;
+    color: #92400e;
+}
+
+.ast01-badge-danger {
+    background-color: #fef2f2;
+    color: #991b1b;
+}
+
+.ast01-badge-neutral {
+    background-color: #f8fafc;
+    color: #475569;
+}
+
+#ast01_sidebar ::-webkit-scrollbar {
+    width: 6px;
+}
+#ast01_sidebar ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+#ast01_sidebar ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
