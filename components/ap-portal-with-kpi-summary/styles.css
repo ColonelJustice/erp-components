@@ -1,0 +1,32 @@
+/* Scoped Styles for AP Portal */
+#ap_portal_wrapper {
+  -webkit-font-smoothing: antialiased;
+}
+
+#ap_invoice_list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#ap_invoice_list::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 3px;
+}
+
+.ap-invoice-item.active {
+  background-color: #f8fafc;
+  border-left: 4px solid #6366f1;
+}
+
+.ap-invoice-item {
+  border-left: 4px solid transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.ap-invoice-item:hover {
+  background-color: #f1f5f9;
+}
+
+#ap_kpi_section {
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+}
