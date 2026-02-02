@@ -1,0 +1,15 @@
+{
+  "id": "d7d20322-e4a3-4bea-b8b7-b56fa51c0952",
+  "name": "AP Portal with KPI Summary",
+  "version": "1.0.0",
+  "updatedAt": "2026-02-02T14:55:52.187Z",
+  "createdAt": "2026-02-02T14:55:52.187Z",
+  "useLiveApi": true,
+  "enabledLibraries": [
+    "chartjs",
+    "jspdf",
+    "filesaver",
+    "dayjs"
+  ],
+  "identifiedBubbleObjects": []
+}
