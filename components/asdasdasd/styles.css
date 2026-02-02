@@ -1,0 +1,56 @@
+/* Tab Navigation */
+.iot_tab_link.active {
+  border-color: #6366f1;
+  color: #4f46e5;
+}
+
+/* Tab Content */
+.iot_tab_content.hidden { 
+  display: none; 
+}
+
+.iot_tab_content.block { 
+  display: block; 
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.status-active { background-color: #ecfdf5; color: #059669; }
+.status-inactive { background-color: #fef2f2; color: #dc2626; }
+
+#iot_dashboard table tbody tr:hover { background-color: #f8fafc; }
+
+.stat-card {
+  background-color: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+#iot_main_chart {
+  width: 100% !important;
+  height: 100% !important;
+}
